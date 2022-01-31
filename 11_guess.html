@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>Gæt et tal mellem 0 og 20</p>
+    <input type="text" id="tal" />
+    <button>Gæt og kig i konsollen</button>
+  </body>
+  <script>
+    let randomTal = Math.round(Math.random() * 20);
+    let antalGæt = 0;
+    let gæt;
+
+    document.querySelector("button").addEventListener("click", buttonClicked);
+
+    function buttonClicked() {
+      antalGæt++;
+      gæt = document.querySelector("#tal").value;
+      if (gæt < randomTal) {
+        console.log("Dit gæt er for lavt - prøv igen");
+      }
+      if (gæt > randomTal) {
+        console.log("Dit gæt er for højt - prøv igen");
+      }
+      if (gæt == randomTal) {
+        console.log(`Korrekt. Du brugte ${antalGæt} antal gæt`);
+      }
+    }
+  </script>
+</html>
