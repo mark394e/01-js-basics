@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>Angiv længden af flyrejsen i timer</p>
+    <input type="text" id="tid" />
+    <button>Klik og kig i konsollen</button>
+
+    <script>
+      let resultat;
+      let timer;
+      let co2UdledtIKgVedFlyrejse;
+
+      document.querySelector("button").addEventListener("click", buttonClicked);
+      function buttonClicked() {
+        timer = document.querySelector("#tid").value;
+        co2UdledtIKgVedFlyrejse = timer * 109;
+
+        if (co2UdledtIKgVedFlyrejse < 100) {
+          resultat = `Ved ${timer} timers flyrejse har du udledt ${co2UdledtIKgVedFlyrejse} kg CO2. Tæt på Thunberg.`;
+        } else if (
+          co2UdledtIKgVedFlyrejse >= 100 &&
+          co2UdledtIKgVedFlyrejse <= 200
+        ) {
+          resultat = `Ved ${timer} timers flyrejse har du udledt ${co2UdledtIKgVedFlyrejse} kg CO2. Jaja, du behøver ikke at melde dig ud af Å!`;
+        } else if (
+          co2UdledtIKgVedFlyrejse > 200 &&
+          co2UdledtIKgVedFlyrejse <= 600
+        ) {
+          resultat = `Ved ${timer} timers flyrejse har du udledt ${co2UdledtIKgVedFlyrejse} kg CO2. Det er godt for turismen i nordeuropa.`;
+        } else {
+          resultat = `Ved ${timer} timers flyrejse har du udledt ${co2UdledtIKgVedFlyrejse} kg CO2. Nå ja, vi kan jo altid kolonisere en anden planet...`;
+        }
+        console.log(resultat);
+      }
+
+      console.log(resultat);
+    </script>
+  </body>
+</html>
